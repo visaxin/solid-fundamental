@@ -1,1 +1,1 @@
-Prepare for interview
+Some basic data strustures and algorithms
