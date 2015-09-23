@@ -10,6 +10,6 @@ def iterativeBinarySearch(items, target):
         if items[middle] == target:
             return True
         elif target < items[middle]:
-            middle = last - 1
+            last = middle - 1
         else:
-            middle = start + 1
+            first = middle + 1
