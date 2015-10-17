@@ -30,3 +30,21 @@ def divby2(decNumber):
         binString = binString + str(s.pop())
 
     return binString
+
+
+def f():
+    a = 0
+    b = 1
+    yield a
+    yield b
+    while True:
+        a, b = b, a+b
+        yield b
+
+
+
+def f():
+    a,b = 0,1
+    while True:
+        yield a
+        a,b = b,a+b

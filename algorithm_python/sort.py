@@ -42,7 +42,6 @@ def count_sort_dic(seq):
 def merge_2n(left,right):
     if not left or not right:
         return left or right
-
     result = []
 
     while left and right:
@@ -82,27 +81,11 @@ def merge_sort(seq):
     if seq[mid:]:
         right = merge_sort(seq[mid:])
 
-    #return merge_2n(left,right)
-
     return merge_n(left,right)
 
-#print merge_sort(seq)
 
-
-def quick_sort(seq):
-    if len(seq)<2:
+def quick_sort(seq = [56,34,58,26,79,52,64,37,28,84,57]):
+    if len(seq) <=1:
         return seq
-
-    mid = len(seq) // 2
-    pivot = seq[mid];
-
-    seq = seq[:mid] +seq[mid+1:]
-    #difference between x <=pivot and x < pivot
-    #x<=pivot The result will contains repeated numbers. eg source = [11,11,2,3,4] =====> [2,3,4,11,11]
-    #x<pivot   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.>>>>>[2,3,4,11]
-    lo = [x for x in seq if x<pivot]
-    li = [x for x in seq if x>pivot]
-
-    return quick_sort(lo) + [pivot] + quick_sort(li)
-
-print quick_sort(seq)
+    else:
+        return quick_sort([x for x in seq[1:] if x<seq[0]]) + [seq[0]] + quick_sort(x for x in seq[1:] if x> seq[0])
