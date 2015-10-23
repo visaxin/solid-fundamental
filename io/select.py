@@ -1,4 +1,4 @@
-
+import socket
 POLL_NULL = 0x00
 POLL_IN = 0x01
 POLL_OUT = 0x04
@@ -28,3 +28,17 @@ class Select(object):
             self.write_list.add(fd)
         if mode & POLL_ERR:
             self.error_list.add(fd)
+
+
+def binary_search(items,target):
+    lower = 0
+    upper = len(items)-1
+
+    while(lower<upper):
+        middle = lower +(upper - lower)/2
+        if(items[middle]==target):
+            return middle
+        elif(target < items[middle]):
+            upper = middle-1
+        else:
+            lower= middle + 1

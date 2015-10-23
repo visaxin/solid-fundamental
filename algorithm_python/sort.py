@@ -89,3 +89,10 @@ def quick_sort(seq = [56,34,58,26,79,52,64,37,28,84,57]):
         return seq
     else:
         return quick_sort([x for x in seq[1:] if x<seq[0]]) + [seq[0]] + quick_sort(x for x in seq[1:] if x> seq[0])
+
+def quick_sort2(items):
+    if len(items) < 2:
+        return items
+    else:
+        return quick_sort2(x for x in items[1:] if x<seq[0])+\
+                [items[0]] + quick_sort2(x for x in items[1:] if x>items[0])
