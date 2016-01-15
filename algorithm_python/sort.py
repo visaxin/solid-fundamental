@@ -8,22 +8,6 @@ def insertion_sort(seq):
             seq[j-1], seq[j] = seq[j], seq[j-1]
             j -= 1
     return seq
-# def insertion_sort_rec(seq, i = None):
-# if i == None: i = len(seq) -1
-# if i == 0: return i
-# insertion_sort_rec(seq, i-1)
-# j = i
-# while j > 0 and seq[j-i] > seq[j]:
-# seq[j-1], seq[j] = seq[j], seq[j-1]
-# j -= 1
-# return seq
-# def test_insertion_sort():
-# seq = [3, 5, 2, 6, 8, 1, 0, 3, 5, 6, 2, 5, 4, 1, 5, 3]
-# assert(insertion_sort(seq) == sorted(seq))
-# assert(insertion_sort_rec(seq) == sorted(seq))
-# print(’Tests passed!’)
-# if __name__ == ’__main__’:
-# test_insertion_sort()
 seq = [2,5,6,7,1,3,4,5,6,1000]
 
 from collections import defaultdict
@@ -96,3 +80,22 @@ def quick_sort2(items):
     else:
         return quick_sort2(x for x in items[1:] if x<seq[0])+\
                 [items[0]] + quick_sort2(x for x in items[1:] if x>items[0])
+
+#The best quick sort python code I ever seen
+
+def best_sort(source = [2,3,5,1,6,8,100,34,54]):
+    less = []
+    eq = []
+    greater = []
+    if len(source) > 1:
+        pivot = source[0]
+        for x in source:
+            if x > pivot:
+                greater.append(x)
+            if x == pivot:
+                eq.append(x)
+            if x < pivot:
+                less.append(x)
+        return best_sort(less) + pivot + best_sort(greater)
+    else:
+        return source
